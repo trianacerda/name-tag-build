@@ -1,39 +1,36 @@
-import React, { Component } from 'react';
-import Controls from '../Controls';
-import Display from '../Display';
+/* eslint-disable quotes */
+import React, { Component } from "react";
+import Controls from "../components/name-tag/Controls";
+import Display from "../components/name-tag/Display";
 
 class NameTag extends Component {
   state = {
-    greeting: '',
-    tagName: '',
-    submitName: '',
-    submitGreeting: '',
+    submitName: "",
+    submitGreeting: "",
   };
 
   handleNameChange = (e) => {
-    this.setState({ tagName: e.target.value });
+    this.setState({ submitName: e.target.value });
   };
 
   handleGreetingChange = (e) => {
-    this.setState({ greeting: e.target.value });
+    this.setState({ submitGreeting: e.target.value });
   };
 
   handleSubmit = (e) => {
     e.preventDefault();
     this.setState({
-      submitName: this.state.tagName,
-      submitGreeting: this.state.greeting,
+      submitName: this.state.submitName,
+      submitGreeting: this.state.submitGreeting,
     });
   };
 
   render() {
-    const { tagName, greeting, submitName, submitGreeting } = this.state;
+    const { submitName, submitGreeting } = this.state;
     return (
       <>
         <Controls
-          greeting={greeting}
           onNameChange={this.handleNameChange}
-          tagName={tagName}
           onGreetingChange={this.handleGreetingChange}
           onSubmit={this.handleSubmit}
         />

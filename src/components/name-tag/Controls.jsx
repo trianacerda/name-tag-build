@@ -1,41 +1,27 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+/* eslint-disable quotes */
+import React from "react";
+import PropTypes from "prop-types";
 
-export default function Controls({
-  greeting,
-  tagName,
-  onNameChange,
-  onGreetingChange,
-  onSubmit,
-}) {
+export default function Controls({ onNameChange, onGreetingChange, onSubmit }) {
   return (
     <form onSubmit={onSubmit}>
-      <label htmlFor="greeting">Greeting</label>
-      <input
-        id="greeting"
-        name="greeting"
-        type="text"
-        value={greeting}
-        onChange={onGreetingChange}
-      />
+      <label>
+        Greeting
+        <input aria-label="greeting" type="text" onChange={onGreetingChange} />
+      </label>
 
-      <label htmlFor="name">Name</label>
-      <input
-        id="name"
-        name="name"
-        type="text"
-        value={tagName}
-        onChange={onNameChange}
-      />
+      <label>
+        Name
+        <input aria-label="name" type="text" onChange={onNameChange} />
+      </label>
+
       <button aria-label="btn">Submit</button>
     </form>
   );
 }
 
 Controls.propTypes = {
-  tagName: PropType.string.isRequired,
-  greeting: PropTypes.string.isRequired,
   onSubmit: PropTypes.func.isRequired,
   onNameChange: PropTypes.func.isRequired,
-  onGreetingChange: PropTypes.func.isRequired
-}
+  onGreetingChange: PropTypes.func.isRequired,
+};
